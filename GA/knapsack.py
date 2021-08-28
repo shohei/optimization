@@ -2,7 +2,8 @@ from deap import base, creator, tools, algorithms
 import random
 import numpy as np
 
-items = ((8,10),(7,13),(6,7),(5,4),(4,9),(3,3,),(2,3),(1,2))
+#items = ((8,10),(7,13),(6,7),(5,4),(4,9),(3,3,),(2,3),(1,2))
+items = ((2,3),(1,2),(3,6),(2,1),(1,3),(5,85))
 
 creator.create("Fitness", base.Fitness, weights=(1.0,))
 creator.create("Individual",list,fitness=creator.Fitness)
@@ -12,7 +13,8 @@ toolbox.register("attribute",random.randint, 0, 1)
 toolbox.register("individual",tools.initRepeat,creator.Individual,toolbox.attribute, len(items))
 toolbox.register("population",tools.initRepeat,list,toolbox.individual)
 
-MAX_WEIGHT=10
+#MAX_WEIGHT=10
+MAX_WEIGHT=4
 def evalKnapsack(individual):
     weight = 0.0
     value = 0.0
